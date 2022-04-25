@@ -1,31 +1,19 @@
-<?php 
-require_once './fonctions/base.php';
-require_once 'autoload.php';
-
-$bd= bd();
-$patient_ctrl =new PatientController($bd);
-$list_patient=$patient_ctrl->afficher_list();
-
-if(isset($_GET['id']))
-{
-    $patient_ctrl->supprimer($_GET['id']);
-    header("location: index.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>index</title>
-        <?php include 'link.php'; ?>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pages/style.css">
+    <?php include 'pages/style.php';?>
+</head>
 <body>
-  <?php include 'header.php'; ?>
-<div class="row col-12" style="background-color: #006666;">
-    <div class="col-6 p-3">
+<?php include 'pages/menu.php';?>
+
+<div class="col md-12 d-flex " >
+    <div class="col md-6">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -34,13 +22,13 @@ if(isset($_GET['id']))
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="picture/a.jpeg" class="d-block w-100" alt="">
+      <img src="image/a.jpeg" class="d-block w-100" height="450px" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="picture/b.webp" class="d-block w-100" alt="">
+      <img src="image/b.webp" class="d-block w-100" height="450px" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="picture/c.webp" class="d-block w-100" alt="">
+      <img src="image/c.webp" class="d-block w-100" height="450px" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -53,15 +41,17 @@ if(isset($_GET['id']))
   </button>
 </div>
     </div>
-    <div class="bg-light col-6 p-3">
-          <h4 class="text-center mb-5" style="font-family: 'Lobster', 'cursive'; font-size: 4rem;">Bienvenue dans la gestion des patients!
-          </h4>
-          <p class="text-center text-danger" style="font-family: 'Lobster', 'cursive'; font-size: 2rem;">La solution pour un meilleur suivi de votre santé!
-          </p> 
-      </div>
-</div>
+    <div class="col md-6"> <br> <br>
+      <h1 style="font-family: Lucida Calligraphy; text-align: center; color: black; font-size: 4em;">Bienvenue dans la gestion des patients!</h1>
+      <h3 style="font-family: Times New Roman; text-align: center;">La solution pour un meilleur suivi de votre santé!</h3>
+    </div>
+</div> <br>
 
-  <?php include 'foot.php'; ?> 
-  <?php include 'script_js.php'; ?>     
- </body>
+      <?php include 'pages/pied.php';?>
+      <?php include 'pages/script.php';?>
+<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+<script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>   
+      
+</body>
 </html>
